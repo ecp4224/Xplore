@@ -34,7 +34,7 @@ var post = {
     "tags": ["chess", "hackathon", "tags are cool o.o"]
 }
 
-DataManager.updatePost( 1, post );
+//DataManager.updatePost( 1, post );
 
 //DataManager.addPost( post, function( err, data ) {
 //    console.log( err || data );
