@@ -29,7 +29,6 @@ module.exports.getPostById = function(postId, callback) {
 	} else {
 		callback( null, null );
 	}
-<<<<<<< HEAD
 }
 
 module.exports.addPost = function(post, callback) {
