@@ -29,7 +29,7 @@ h1.header a:active {
 }
 
 .card {
-  box-shadow: 3px 1px 38px -14px;
+  box-shadow: 0 2px 5px 0px #AAA;
   border-radius: 5px;
   margin-bottom: 20px;
 }
