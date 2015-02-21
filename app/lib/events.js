@@ -79,7 +79,39 @@ module.exports = {
                 }
 
                 database.updatePost(postId, post);
-                callback();
+                database.addEventToUser(username, postId, function(ee, user) {
+                    if (ee) {
+                        errorCallback(ee);
+                        return;
+                    }
+
+                    callback();
+                });
+            });
+        } else if (actionType == "un-rsvp") {
+            var role1 = data.role;
+            database.getPostById(postId, function(e, post) {
+                if (e) {
+                    errorCallback(e);
+                    return;
+                }
+                for (var i = 0; i < post.tickets.length; i++) {
+                    var r = post.tickets[i];
+                    if (r.role == role1 && r.taken == 1) {
+                        post.tickets[i].taken = 0;
+                        break;
+                    }
+                }
+
+                database.updatePost(postId, post);
+                database.removeEventFromUser(username, postId, function(ee, user) {
+                    if (ee) {
+                        errorCallback(ee);
+                        return;
+                    }
+
+                    callback();
+                });
             });
         } else {
             errorCallback(new Error("Invalid action type"));
