@@ -46,18 +46,19 @@
     },
     "2": {
       "id": 2,
-      "title": "Chess Club 2",
-      "description": "We are having a chess club meeting this thrusday and we're looking for people!",
+      "title": "Swim Team",
+      "location": "11 Times Square",
+      "description": "We are having swim practice tomorrow!",
       "date": "2/26/2015",
       "timeStart": "3:00PM",
       "timeEnd": "5:00PM",
       "tickets": [
         {
-          "role": " another coach",
+          "role": "coach",
           "taken": 1
         },
         {
-          "role": " another score_keeper",
+          "role": "score_keeper",
           "taken": 0
         }
       ],
