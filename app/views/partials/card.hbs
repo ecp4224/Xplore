@@ -1,0 +1,29 @@
+{{#each posts}}
+    <div class="card row">
+
+      <div class="col-md-12">
+        <h1>{{this.title}}</h1>
+      </div>
+
+      <div class="date col-md-12">
+        <em>{{this.date}} {{this.time}}</em>
+      </div>
+
+      <div class="description col-md-12">
+        <p>{{description}}</p>
+
+        <!--<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=16&center=40.7565%2C-73.9897&key=AIzaSyCWidOuuAQFblPoVZacnDuXJdb92mm7cMc"></iframe>-->
+          <ul class="list-unstyled">
+            {{#each this.tickets}}
+              <li>
+                <input type="radio" name="role" id="card-form_{{this.role}}">
+                <label for="card-form_{{this.role}}">{{this.role}}</label>
+              </li>
+            {{/each}}
+          </ul>
+        <button class="btn btn-default">Attending</button>
+        <button class="btn btn-default">Not Attending</button>
+      </div>
+
+    </div>
+{{/each}}
