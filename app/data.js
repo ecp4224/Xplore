@@ -48,3 +48,7 @@ var user = {
 //DataManager.addUser( 'foo', user, function( err, data ) {
 //    console.log( err || data );
 //});
+
+DataManager.getPosts( function( err, data ) {
+    console.log( err || data );
+})
