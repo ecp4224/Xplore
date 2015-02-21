@@ -65,14 +65,11 @@ app.post('/feed/:postId', function(req, res){
         return;
     }
 
-    var actionObject = {
-        'actionType': req.body.actionType,
-        'data': req.body.data
-    };
-
-    //TODO Do action with post id
-
-    req.sendStatus(200);
+    events.eventAction(postId, req.body.actionType, req.body.data, username, function() {
+        res.status(200);
+    }, function(e) {
+        res.status(500).send(e);
+    });
 });
 
 
