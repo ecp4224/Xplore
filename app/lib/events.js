@@ -62,7 +62,22 @@ module.exports = {
             });
         });
     },
-    feedAction: function(actionType, data, username) {
-
+    eventAction: function(postId, actionType, data, username, callback, errorCallback) {
+        if (actionType == "rsvp") {
+            var role = data.role;
+            database.getPostById(postId, function(e, post) {
+                for (var i = 0; i < post.tickets.length; i++) {
+                    var r = post.tickets[i];
+                    if (r.role == role && r.taken == 0) {
+                        post.tickets[i].taken = 1;
+                        break;
+                    }
+                }
+                database.updatePost(postId, post);
+                callback();
+            });
+        } else {
+            errorCallback(new Error("Invalid action type"));
+        }
     }
 };
