@@ -29,7 +29,7 @@ module.exports.getPostById = function(postId, callback) {
 	} else {
 		callback( null, null );
 	}
-}
+};
 
 module.exports.addPost = function(post, callback) {
     var postRef = new Firebase('https://scorching-inferno-8193.firebaseio.com/posts');
@@ -59,7 +59,31 @@ module.exports.addPost = function(post, callback) {
     } else {
         callback( null, null );
     }
-}
+};
+
+module.exports.addEventToUser = function(username, eventId, callback) {
+    var userRef = new Firebase('https://scorching-inferno-8193.firebaseio.com/users/'+username);
+    if (userRef) {
+        userRef.on('value', function(snapshot) {
+            if (snapshot) {
+                var user = snapshot.val();
+                user.events.push(eventId);
+                userRef.set(user, function (error) {
+                    if (error) {
+                        callback(error);
+                    } else {
+                        callback(null, user);
+                    }
+                });
+            } else {
+                var err = new Error("Missing snapshot");
+                callback(err, null);
+            }
+        });
+    } else {
+        callback( null, null );
+    }
+};
 
 module.exports.addUser = function(username, user, callback) {
     var usersRef = new Firebase('https://scorching-inferno-8193.firebaseio.com/posts');
@@ -89,7 +113,7 @@ module.exports.addUser = function(username, user, callback) {
     } else {
         callback( null, null );
     }
-}
+};
 
 module.exports.getPostCount = function(callback) {
     var postRef = new Firebase('https://scorching-inferno-8193.firebaseio.com/post_count');

@@ -61,8 +61,22 @@ module.exports = {
             });
         }
     },
-    createAndSaveEvent: function(eventType, username) {
-        //TODO Save event object to firebase database
+    createEvent: function(event, username, callback, errorCallback) {
+        database.addPost(event, function(e, newPost) {
+            if (e) {
+                errorCallback(e);
+                return;
+            }
+
+            database.addEventToUser(username, newPost.id, function(ee, user) {
+                if (ee) {
+                    errorCallback(ee);
+                    return;
+                }
+
+                callback(newPost);
+            });
+        });
     },
     feedAction: function(actionType, data, username) {
         //TODO Get feed, do action, and save to database

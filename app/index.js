@@ -48,9 +48,11 @@ app.post('/feed', function(req, res) {
         'tags': req.body.tags
     };
 
-    event.createEvent(eventObject);
-
-    req.sendStatus(200);
+    events.createEvent(eventObject, username, function(post) {
+        res.status(200).send(JSON.stringify(post));
+    }, function (err) {
+        res.status(500).send(err);
+    });
 });
 
 app.post('/feed/:postId', function(req, res){
