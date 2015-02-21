@@ -29,7 +29,7 @@ h1.header a:active {
 }
 
 .card {
-  border: 1px solid #222;
+  box-shadow: 3px 1px 38px -14px;
   border-radius: 5px;
   margin-bottom: 20px;
 }
@@ -39,7 +39,7 @@ h1.header a:active {
 }
 
 .card .date {
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.1);
   padding: 10px;
 }
 

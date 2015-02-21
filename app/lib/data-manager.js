@@ -97,8 +97,8 @@ module.exports.addEventToUser = function(username, eventId, callback) {
             if (snapshot) {
                 userRef.off('value');
                 var user = snapshot.val();
-
-                if (user.events.contains(eventId)) {
+                
+                if (user.events.indexOf(eventId) > -1) {
                     callback(null, user);
                     return;
                 }
@@ -129,7 +129,7 @@ module.exports.removeEventFromUser = function(username, eventId, callback) {
                 userRef.off('value');
                 var user = snapshot.val();
 
-                if (!user.events.contains(eventId)) {
+                if (!user.events.indexOf(eventId) <= -1) {
                     callback(null, user);
                     return;
                 }

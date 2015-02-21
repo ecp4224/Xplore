@@ -89,7 +89,10 @@ module.exports = {
                 });
             });
         } else if (actionType == "un-rsvp") {
-            var role1 = data.role;
+            var role1 = '';
+            if (data)
+                role1 = data.role;
+
             database.getPostById(postId, function(e, post) {
                 if (e) {
                     errorCallback(e);
