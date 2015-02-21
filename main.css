@@ -3,10 +3,10 @@
   margin-right: 0;
 }
 
-.card-container {
-
+.card-extended ul {
+  list-style-type: none;
 }
 
-.card {
-
+.card-extended ul li input {
+  padding-left: 16px;
 }
