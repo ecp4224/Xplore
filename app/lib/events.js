@@ -2,7 +2,7 @@ var database = require('./data-manager.js');
 
 module.exports = {
     getFeedFor: function(type, username, callback, errorCallback) {
-        if (type == "feed") {
+        if (type == "home") {
             database.getPosts(function(e, data) {
                 if (e) {
                     errorCallback(e);
@@ -11,7 +11,7 @@ module.exports = {
 
                 callback(data);
             });
-        } else if (type == "home") {
+        } else if (type == "feed") {
             database.getUserWithUserName(username, function(e, user) {
                 if (e) {
                     errorCallback(e);

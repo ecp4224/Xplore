@@ -1,5 +1,5 @@
 var express = require('express'),
-    events = require('./lib/events.js'),
+    events = require('./app/lib/events.js'),
     hbs = require('hbs'),
     bodyParser = require('body-parser');
 
