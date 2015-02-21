@@ -1,12 +1,31 @@
-.row {
-  margin-left: 0;
-  margin-right: 0;
+.card {
+  border: 1px solid #222;
+  border-radius: 5px;
 }
 
-.card-extended ul {
-  list-style-type: none;
+.card h1 {
+  display: inline-block;
 }
 
-.card-extended ul li input {
-  padding-left: 16px;
+.card .date {
+  border-bottom: 1px solid #222;
+  padding: 10px;
+}
+
+.card .description {
+  overflow: none;
+  padding: 10px;
+}
+
+.card .description p {
+  white-space: pre-line;
+}
+
+.card footer {
+  border-top: 1px solid #222;
+}
+
+.card footer h4 {
+  display: inline-block;
+  vertical-align: middle;
 }
