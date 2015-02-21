@@ -83,6 +83,13 @@ module.exports.addPost = function(post, callback) {
     }
 };
 
+module.exports.updatePost = function( postId, post ) {
+    var postRef = new Firebase('https://scorching-inferno-8193.firebaseio.com/posts/'+postId);
+    if (postRef) {
+        postRef.set(post);
+    }
+}
+
 module.exports.addEventToUser = function(username, eventId, callback) {
     var userRef = new Firebase('https://scorching-inferno-8193.firebaseio.com/users/'+username);
     if (userRef) {

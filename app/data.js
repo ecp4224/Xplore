@@ -14,10 +14,13 @@ var DataManager = require('./lib/data-manager');
 //});
 
 var post = {
-    "title": "Hackathon Too",
-    "description": "GenTech Student Hackathon Too!",
+    "id": 1,
+    "title": "Chess Club",
+    "location": "20 Evans Way, Boston MA 02115",
+    "description": "We are having a chess club meeting this thrusday and we're looking for people!",
     "date": "2/26/2015",
-    "time": "3:00PM",
+    "timeStart": "3:00PM",
+    "timeEnd": "5:00PM",
     "tickets": [
         {
             "role": "coach",
@@ -27,8 +30,11 @@ var post = {
             "role": "score_keeper",
             "taken": 0
         }
-    ]
+    ],
+    "tags": ["chess", "hackathon", "tags are cool o.o"]
 }
+
+DataManager.updatePost( 1, post );
 
 //DataManager.addPost( post, function( err, data ) {
 //    console.log( err || data );
@@ -49,10 +55,10 @@ var user = {
 //    console.log( err || data );
 //});
 
-DataManager.getPosts( function( err, data ) {
-    console.log( err || data );
-});
-
-DataManager.addEventToUser('rabaya', 5, function( err, data ) {
-    console.log( err || data );
-});
+//DataManager.getPosts( function( err, data ) {
+//    console.log( err || data );
+//});
+//
+//DataManager.addEventToUser('rabaya', 5, function( err, data ) {
+//    console.log( err || data );
+//});
