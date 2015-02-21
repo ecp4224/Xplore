@@ -92,7 +92,7 @@ module.exports = {
             var role1 = '';
             if (data)
                 role1 = data.role;
-            
+
             database.getPostById(postId, function(e, post) {
                 if (e) {
                     errorCallback(e);
