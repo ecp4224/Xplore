@@ -15,6 +15,14 @@ h1.header {
   text-align: center;
 }
 
+h1.header a:link, 
+h1.header a:visited, 
+h1.header a:hover,
+h1.header a:active {
+  color: #eee;
+  text-decoration: none;
+}
+
 .nav-list {
   margin-top: 10px;
   margin-bottom: 20px;
