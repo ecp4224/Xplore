@@ -3,31 +3,13 @@ var database = require('./data-manager.js');
 module.exports = {
     getFeedFor: function(type, username, callback, errorCallback) {
         if (type == "feed") {
-            var toDisplay = 10;
-            database.getPostCount(function(e, number) {
+            database.getPosts(function(e, data) {
                 if (e) {
                     errorCallback(e);
                     return;
                 }
 
-                var i = Math.max(number - toDisplay, 0); //Clamp i to 0
-                var limit = toDisplay > number ? number : toDisplay;
-
-                var toReturn = [];
-                for (var t = number - 1; t >= i; t--) {
-                    database.getPostById(t, function(e, event) {
-                        if (e) {
-                            errorCallback(e);
-                            return;
-                        }
-
-                        toReturn.push(event);
-
-                        if (toReturn.length == limit) {
-                            callback(toReturn);
-                        }
-                    });
-                }
+                callback(data);
             });
         } else if (type == "home") {
             database.getUserWithUserName(username, function(e, user) {
@@ -61,10 +43,26 @@ module.exports = {
             });
         }
     },
-    createAndSaveEvent: function(eventType, username) {
-        //TODO Save event object to firebase database
+    createEvent: function(event, username, callback, errorCallback) {
+        database.addPost(event, function(e, newPost) {
+            if (e) {
+                errorCallback(e);
+                return;
+            }
+
+            console.log(newPost.id);
+
+            database.addEventToUser(username, newPost.id, function(ee, user) {
+                if (ee) {
+                    errorCallback(ee);
+                    return;
+                }
+
+                callback(newPost);
+            });
+        });
     },
     feedAction: function(actionType, data, username) {
-        //TODO Get feed, do action, and save to database
+
     }
 };
