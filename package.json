@@ -4,7 +4,7 @@
   "description": "An event feed ",
   "main": "index.js",
   "scripts": {
-    "app": "node app/index.js"
+    "app": "node app.js"
   },
   "repository": {
     "type": "git",
