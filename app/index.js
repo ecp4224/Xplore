@@ -71,14 +71,14 @@ app.post('/feed', function(req, res) {
 });
 
 app.post('/feed/:postId', function(req, res){
-    var postId = req.params.name;
+    var postId = req.params.postId;
     if (!postId) {
-        req.sendStatus(500);
+        res.status(500).send("No post id!");
         return;
     }
 
     events.eventAction(postId, req.body.actionType, req.body.data, username, function() {
-        res.status(200);
+        res.status(200).end();
     }, function(e) {
         res.status(500).send(e);
     });

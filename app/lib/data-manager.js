@@ -97,7 +97,44 @@ module.exports.addEventToUser = function(username, eventId, callback) {
             if (snapshot) {
                 userRef.off('value');
                 var user = snapshot.val();
+
+                if (user.events.contains(eventId)) {
+                    callback(null, user);
+                    return;
+                }
+
                 user.events.push(eventId);
+                userRef.set(user, function (error) {
+                    if (error) {
+                        callback(error);
+                    } else {
+                        callback(null, user);
+                    }
+                });
+            } else {
+                var err = new Error("Missing snapshot");
+                callback(err, null);
+            }
+        });
+    } else {
+        callback( null, null );
+    }
+};
+
+module.exports.removeEventFromUser = function(username, eventId, callback) {
+    var userRef = new Firebase('https://scorching-inferno-8193.firebaseio.com/users/'+username);
+    if (userRef) {
+        userRef.on('value', function(snapshot) {
+            if (snapshot) {
+                userRef.off('value');
+                var user = snapshot.val();
+
+                if (!user.events.contains(eventId)) {
+                    callback(null, user);
+                    return;
+                }
+
+                user.events.splice(user.events.indexOf(eventId), 1);
                 userRef.set(user, function (error) {
                     if (error) {
                         callback(error);
