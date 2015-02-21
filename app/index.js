@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
-    res.render('home', data);
+    res.render('home');
 });
 
 app.get('/create', function(req, res) {
