@@ -16,7 +16,7 @@
           <ul class="list-unstyled">
             {{#each this.tickets}}
               <li>
-                <input type="radio" name="role" id="card-form_{{this.role}}">
+                <input type="radio" name="roles_{{this.id}}" id="card-form_{{this.role}}">
                 <label for="card-form_{{this.role}}">{{this.role}}</label>
               </li>
             {{/each}}

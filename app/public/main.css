@@ -3,7 +3,6 @@ body {
 }
 
 body .container {
-  min-height: 100%;
 }
 
 h1.header {
@@ -24,6 +23,7 @@ h1.header {
 .card {
   border: 1px solid #222;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .card h1 {
@@ -51,4 +51,12 @@ h1.header {
 .card footer h4 {
   display: inline-block;
   vertical-align: middle;
+}
+
+body > footer p {
+  background: url(http://subtlepatterns.com/patterns/footer_lodyas.png);
+  color: #eee;
+  height: 100px;
+  line-height: 100px;
+  margin-bottom: 0;
 }

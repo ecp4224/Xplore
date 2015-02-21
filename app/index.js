@@ -18,6 +18,10 @@ app.get('/', function(req, res) {
     res.render('home', require('./database-init.json'));
 });
 
+app.get('/myevents', function(req, res){
+    res.render('myevents', require('./database-init.json'));
+});
+
 app.get('/create', function(req, res) {
     res.render('createForm');
 });

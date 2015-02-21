@@ -53,11 +53,11 @@
       "timeEnd": "5:00PM",
       "tickets": [
         {
-          "role": "coach",
+          "role": " another coach",
           "taken": 1
         },
         {
-          "role": "score_keeper",
+          "role": " another score_keeper",
           "taken": 0
         }
       ],
