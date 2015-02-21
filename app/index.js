@@ -1,13 +1,15 @@
 var express = require('express'),
     events = require('./lib/events.js'),
+    exphbs = require('express-handlebars');
     bodyParser = require('body-parser');
 
 var app = express();
 
 var username = "rabaya"; //TODO Change this to demo user
 
-app.set('views', './views');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
@@ -67,4 +69,4 @@ app.post('/feed/:postId', function(req, res){
 });
 
 
-app.listen(80);
+app.listen(3880);
