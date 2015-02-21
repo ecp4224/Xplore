@@ -14,7 +14,7 @@ module.exports.getUserWithUserName = function(username, callback) {
 	} else {
 		callback( null, null );
 	}
-}
+};
 
 module.exports.getPostById = function(postId, callback) {
 	var postRef = new Firebase('https://scorching-inferno-8193.firebaseio.com/posts/'+postId);
@@ -29,4 +29,4 @@ module.exports.getPostById = function(postId, callback) {
 	} else {
 		callback( null, null );
 	}
-}
+};
