@@ -14,7 +14,6 @@
         <p>{{description}}</p>
 
         <!--<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=16&center=40.7565%2C-73.9897&key=AIzaSyCWidOuuAQFblPoVZacnDuXJdb92mm7cMc"></iframe>-->
-        <form>
           <ul class="list-unstyled">
             {{#each this.tickets}}
             <li>
@@ -25,20 +24,50 @@
             </li>
             {{/each}}
           </ul>
-          <ul class="list-unstyled">
-            <li>
-              <input type="radio" name="status" id="card-form_status">
-              <label for="card-form_status">Going</label>
-            </li>
-            <li>
-              <input type="radio" name="status" id="card-form_status">
-              <label for="card-form_status">Not Going</label>
-            </li>
+          <ul class="list-unstyled" id="card_status_{{id}}">
+              <li>
+                <input type="radio" name="status_{{id}}">
+                <label for="card-form_status">Going</label>
+              </li>
+              <li>
+                <input type="radio" name="status_{{id}}">
+                <label for="card-form_status">Not Going</label>
+              </li>
           </ul>
-          <button class="btn btn-default" type="submit">Submit</button>
-        </form>
+          <button class="btn btn-default card_btn" card-id="{{id}}">Submit</button>
       </div>
 
     </div>
   {{/if}}
 {{/each}}
+
+<script type="text/javascript">
+
+  $(document).on('ready', function(){
+    $('.card_btn').on('click', function(){
+      var id = $(this).attr('card-id');
+      var rawStatus = $("input[name=status_" + id + "]:checked").next().text().toLowerCase();
+      var status = "un-rsvp";
+      if(rawStatus == "going"){
+        status = "rsvp"
+      }
+      var role = $("input[name=roles_" + id + "]:checked").parent().text().trim();
+      var data = {
+        actionType: status,
+        data: {
+          role: role
+        }
+      }
+      $.ajax({
+        type: 'post',
+        contentType: 'application/json',
+        url: '/feed/' + id,
+        data: JSON.stringify(data),
+      }).done(function(data) {
+        console.log(data);
+      });
+      console.log(data);
+    });
+  });
+
+</script>

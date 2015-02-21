@@ -97,7 +97,7 @@ module.exports.addEventToUser = function(username, eventId, callback) {
             if (snapshot) {
                 userRef.off('value');
                 var user = snapshot.val();
-
+                
                 if (user.events.indexOf(eventId) > -1) {
                     callback(null, user);
                     return;
