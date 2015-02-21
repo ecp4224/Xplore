@@ -1,4 +1,5 @@
 {{#each posts}}
+  {{#if this.title}}
     <div class="card row">
 
       <div class="col-md-12">
@@ -16,27 +17,28 @@
         <form>
           <ul class="list-unstyled">
             {{#each this.tickets}}
-              <li>
-                <label>
-                  <input type="radio" name="roles_{{../id}}">
-                  {{this.role}}
-                </label>
-              </li>
+            <li>
+              <label>
+                <input type="radio" name="roles_{{../id}}">
+                {{this.role}}
+              </label>
+            </li>
             {{/each}}
           </ul>
           <ul class="list-unstyled">
-              <li>
-                <input type="radio" name="status" id="card-form_status">
-                <label for="card-form_status">Going</label>
-              </li>
-              <li>
-                <input type="radio" name="status" id="card-form_status">
-                <label for="card-form_status">Not Going</label>
-              </li>
+            <li>
+              <input type="radio" name="status" id="card-form_status">
+              <label for="card-form_status">Going</label>
+            </li>
+            <li>
+              <input type="radio" name="status" id="card-form_status">
+              <label for="card-form_status">Not Going</label>
+            </li>
           </ul>
           <button class="btn btn-default" type="submit">Submit</button>
         </form>
       </div>
 
     </div>
+  {{/if}}
 {{/each}}
