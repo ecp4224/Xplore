@@ -1,0 +1,72 @@
+{{> header}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h1>Create event</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <form>
+        <div class="form-group">
+          <label>Title</label>
+          <input id="title" type="text" class="form-control" placeholder="e.g. Chess Club Tournament">
+        </div>
+        <div class="form-group">
+          <label>Date/Time</label>
+          <input id="date" type="text" class="form-control" placeholder="e.g. January 22nd, 10am-9pm">
+        </div>
+        <div class="form-group">
+          <label>School</label>
+          <input id="school" type="text" class="form-control" placeholder="Brooklyn Technical High School">
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="description" class="form-control" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Roles (Separated by Comma)</label>
+          <input id="roles" type="text" class="form-control" placeholder="e.g. Volunteer,Competitor">
+        </div>
+        <button type="submit" class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $('form').on('submit', function(e) {
+      e.preventDefault();
+      var roles = $('#roles').val().split(',');
+      var tickets = [];
+      $.each(roles, function(i, role) {
+        tickets.push({
+          role: role,
+          taken: 0
+        });
+      });
+      $.ajax({
+        type: 'post',
+        contentType: 'application/json',
+        url: '/feed',
+        data: JSON.stringify({
+          title: $('#title').val(),
+          time: '',
+          tags: '',
+          description: $('#description').val(),
+          school: $('#school').val(),
+          date: $('#date').val(),
+          tickets: tickets
+        }),
+      }).done(function(data) {
+        document.location = document.location.origin;
+      });
+    });
+  });
+</script>
+
+{{> footer}}
+
