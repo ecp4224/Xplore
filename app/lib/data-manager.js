@@ -31,6 +31,25 @@ module.exports.getPostById = function(postId, callback) {
 	}
 };
 
+module.exports.getPosts = function( callback ) {
+    var postRef = new Firebase('https://scorching-inferno-8193.firebaseio.com/posts');
+    if (postRef) {
+        postRef.on('value', function (snapshot) {
+            if (snapshot) {
+                postRef.off('value');
+                var posts = snapshot.val();
+                callback( null, posts );
+            } else {
+                var err = new Error("Missing snapshot");
+                callback( err, null );
+            }
+        });
+    } else {
+        var err = new Error("missing postRef");
+        callback( err, null );
+    }
+}
+
 module.exports.addPost = function(post, callback) {
     var postRef = new Firebase('https://scorching-inferno-8193.firebaseio.com/posts');
     if (postRef) {
