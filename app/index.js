@@ -6,6 +6,7 @@ var express = require('express'),
 var app = express();
 
 var username = "rabaya"; //TODO Change this to demo user
+var createUser = "ecp4224";
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
@@ -63,7 +64,7 @@ app.post('/feed', function(req, res) {
         tags: req.body.tags
     };
 
-    events.createEvent(eventObject, username, function(post) {
+    events.createEvent(eventObject, createUser, function(post) {
         res.status(200).send(JSON.stringify(post));
     }, function (err) {
         res.status(500).send(err);
