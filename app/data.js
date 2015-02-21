@@ -51,4 +51,8 @@ var user = {
 
 DataManager.getPosts( function( err, data ) {
     console.log( err || data );
-})
+});
+
+DataManager.addEventToUser('rabaya', 5, function( err, data ) {
+    console.log( err || data );
+});

@@ -88,6 +88,7 @@ module.exports.addEventToUser = function(username, eventId, callback) {
     if (userRef) {
         userRef.on('value', function(snapshot) {
             if (snapshot) {
+                userRef.off('value');
                 var user = snapshot.val();
                 user.events.push(eventId);
                 userRef.set(user, function (error) {
