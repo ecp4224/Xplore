@@ -13,6 +13,11 @@
 }
 
 .card .description {
+  overflow: none;
+  padding: 10px;
+}
+
+.card .description p {
   white-space: pre-line;
 }
 
