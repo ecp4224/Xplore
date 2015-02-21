@@ -8,10 +8,7 @@
         "chess",
         "swimming"
       ],
-      "events": [
-        1,
-        2
-      ]
+      "events": []
     },
     "ecp4224": {
       "email": "ecp4224@gmail.com",
@@ -19,7 +16,8 @@
       "interests": [
         "math",
         "computers"
-      ]
+      ],
+      "events": []
     }
   },
   "post_count": 3,

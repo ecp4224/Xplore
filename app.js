@@ -6,6 +6,7 @@ var express = require('express'),
 var app = express();
 
 var username = "rabaya"; //TODO Change this to demo user
+var createUser = "ecp4224";
 
 app.set('views', __dirname + '/app/views');
 app.set('view engine', 'hbs');
