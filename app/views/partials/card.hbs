@@ -13,16 +13,29 @@
         <p>{{description}}</p>
 
         <!--<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=16&center=40.7565%2C-73.9897&key=AIzaSyCWidOuuAQFblPoVZacnDuXJdb92mm7cMc"></iframe>-->
+        <form>
           <ul class="list-unstyled">
             {{#each this.tickets}}
               <li>
-                <input type="radio" name="roles_{{this.id}}" id="card-form_{{this.role}}">
-                <label for="card-form_{{this.role}}">{{this.role}}</label>
+                <label>
+                  <input type="radio" name="roles_{{../id}}">
+                  {{this.role}}
+                </label>
               </li>
             {{/each}}
           </ul>
-        <button class="btn btn-default">Attending</button>
-        <button class="btn btn-default">Not Attending</button>
+          <ul class="list-unstyled">
+              <li>
+                <input type="radio" name="status" id="card-form_status">
+                <label for="card-form_status">Going</label>
+              </li>
+              <li>
+                <input type="radio" name="status" id="card-form_status">
+                <label for="card-form_status">Not Going</label>
+              </li>
+          </ul>
+          <button class="btn btn-default" type="submit">Submit</button>
+        </form>
       </div>
 
     </div>

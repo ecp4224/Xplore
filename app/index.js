@@ -15,11 +15,23 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
-    res.render('home', require('./database-init.json'));
+    events.getFeedFor('home', username, function(events) {
+      res.render('home', {
+        posts: events
+      });
+    }, function(err) {
+        res.status(500).send(err);
+    });
 });
 
 app.get('/myevents', function(req, res){
-    res.render('myevents', require('./database-init.json'));
+    events.getFeedFor('feed', username, function(events) {
+      res.render('myevents', {
+        posts: events
+      });
+    }, function(err) {
+        res.status(500).send(err);
+    });
 });
 
 app.get('/create', function(req, res) {
@@ -65,14 +77,11 @@ app.post('/feed/:postId', function(req, res){
         return;
     }
 
-    var actionObject = {
-        'actionType': req.body.actionType,
-        'data': req.body.data
-    };
-
-    //TODO Do action with post id
-
-    req.sendStatus(200);
+    events.eventAction(postId, req.body.actionType, req.body.data, username, function() {
+        res.status(200);
+    }, function(e) {
+        res.status(500).send(e);
+    });
 });
 
 app.set('port', process.env.PORT || 3000);
