@@ -7,7 +7,7 @@ var app = express();
 
 var username = "rabaya"; //TODO Change this to demo user
 
-app.set('views', './views');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.use(bodyParser.json());
