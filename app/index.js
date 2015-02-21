@@ -26,13 +26,11 @@ app.get('/feed', function(req, res) {
     }
     var type = req.query.type;
 
-    //TODO Get feed based on type
-
     events.getFeedFor(type, username, function(events) {
         res.status(200);
         res.send(JSON.stringify(events));
     }, function(err) {
-        res.sendStatus(500);
+        res.status(500).send(err);
     });
 });
 
