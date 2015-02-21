@@ -25,7 +25,7 @@
   "post_count": 3,
   "posts": {
     "1": {
-      "id": 0,
+      "id": 1,
       "title": "Chess Club",
       "short_description": "Chess club meeting tuesday!",
       "description": "We are having a chess club meeting this thrusday and we're looking for people!",
@@ -43,7 +43,7 @@
       ]
     },
     "2": {
-      "id": 1,
+      "id": 2,
       "title": "Chess Club",
       "short_description": "Chess club meeting tuesday!",
       "description": "We are having a chess club meeting this thrusday and we're looking for people!",
