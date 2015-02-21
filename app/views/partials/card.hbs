@@ -64,9 +64,8 @@
         url: '/feed/' + id,
         data: JSON.stringify(data),
       }).done(function(data) {
-        console.log(data);
+        sweetAlert("Successfully RSVP'd!");
       });
-      console.log(data);
     });
   });
 
