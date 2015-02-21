@@ -11,9 +11,10 @@
     "url": "https://github.com/hypereddie/EventFeed.git"
   },
   "dependencies": {
+    "express": "4.11.*",
+    "express-handlebars": "^1.2.1",
     "firebase": "2.2.*",
     "handlebars": "3.*.*",
-    "express": "4.11.*",
     "hbs": "2.7.0"
   },
   "author": "",
@@ -23,4 +24,3 @@
   },
   "homepage": "https://github.com/hypereddie/EventFeed"
 }
-

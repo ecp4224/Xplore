@@ -1,10 +1,12 @@
 var express = require('express'),
-    events = require('./lib/events.js');
+    events = require('./lib/event.js'),
+    exphbs = require('express-handlebars');
 
 var app = express();
 
 app.set('views', './views');
 app.set('view engine', 'hbs');
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.use(express.json());
 
 app.get('/', function(req, res) {
