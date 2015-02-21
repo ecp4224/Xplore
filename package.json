@@ -4,7 +4,7 @@
   "description": "An event feed ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "app": "node app/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,6 +15,11 @@
     "express-handlebars": "^1.2.1",
     "firebase": "2.2.*",
     "handlebars": "3.*.*",
+<<<<<<< HEAD
+=======
+    "express": "4.11.*",
+    "body-parser": "*",
+>>>>>>> 66e82d59d3d9cb11d75b96842adab955350f02fe
     "hbs": "2.7.0"
   },
   "author": "",
