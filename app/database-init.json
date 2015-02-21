@@ -27,10 +27,11 @@
     "1": {
       "id": 1,
       "title": "Chess Club",
-      "short_description": "Chess club meeting tuesday!",
+      "location": "20 Evans Way, Boston MA 02115",
       "description": "We are having a chess club meeting this thrusday and we're looking for people!",
       "date": "2/26/2015",
-      "time": "3:00PM",
+      "timeStart": "3:00PM",
+      "timeEnd": "5:00PM",
       "tickets": [
         {
           "role": "coach",
@@ -40,15 +41,16 @@
           "role": "score_keeper",
           "taken": 0
         }
-      ]
+      ],
+      "tags": ["chess", "hackathon", "tags are cool o.o"]
     },
     "2": {
       "id": 2,
       "title": "Chess Club 2",
-      "short_description": "Chess club meeting tuesday!",
       "description": "We are having a chess club meeting this thrusday and we're looking for people!",
       "date": "2/26/2015",
-      "time": "3:00PM",
+      "timeStart": "3:00PM",
+      "timeEnd": "5:00PM",
       "tickets": [
         {
           "role": "coach",
@@ -58,7 +60,8 @@
           "role": "score_keeper",
           "taken": 0
         }
-      ]
+      ],
+      "tags": ["chess", "hackathon", "tags are cool o.o"]
     }
   }
 }
