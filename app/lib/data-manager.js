@@ -29,6 +29,7 @@ module.exports.getPostById = function(postId, callback) {
 	} else {
 		callback( null, null );
 	}
+<<<<<<< HEAD
 }
 
 module.exports.addPost = function(post, callback) {
@@ -90,3 +91,18 @@ module.exports.addUser = function(username, user, callback) {
         callback( null, null );
     }
 }
+
+module.exports.getPostCount = function(callback) {
+    var postRef = new Firebase('https://scorching-inferno-8193.firebaseio.com/post_count');
+    if (postRef) {
+        postRef.on('value', function(snapshot) {
+            if (snapshot) {
+                callback(null, snapshot.val());
+            } else {
+                callback(null, null);
+            }
+        });
+    } else {
+        callback(null, null);
+    }
+};

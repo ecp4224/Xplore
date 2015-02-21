@@ -1,6 +1,6 @@
 var express = require('express'),
     events = require('./lib/events.js'),
-    exphbs = require('express-handlebars');
+    hbs = require('hbs'),
     bodyParser = require('body-parser');
 
 var app = express();
@@ -9,8 +9,10 @@ var username = "rabaya"; //TODO Change this to demo user
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+hbs.registerPartials(__dirname + '/views/partials');
+
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
     res.render('home');
@@ -28,13 +30,11 @@ app.get('/feed', function(req, res) {
     }
     var type = req.query.type;
 
-    //TODO Get feed based on type
-
     events.getFeedFor(type, username, function(events) {
         res.status(200);
         res.send(JSON.stringify(events));
     }, function(err) {
-        res.sendStatus(500);
+        res.status(500).send(err);
     });
 });
 
