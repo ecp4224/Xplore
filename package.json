@@ -14,7 +14,7 @@
     "firebase": "2.2.*",
     "handlebars": "3.*.*",
     "express": "4.11.*",
-    "hbs": "2.7.0",
+    "hbs": "2.7.0"
   },
   "author": "",
   "license": "ISC",
