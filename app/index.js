@@ -31,8 +31,7 @@ app.get('/feed', function(req, res) {
     var type = req.query.type;
 
     events.getFeedFor(type, username, function(events) {
-        res.status(200);
-        res.send(JSON.stringify(events));
+        res.status(200).send(JSON.stringify(events));
     }, function(err) {
         res.status(500).send(err);
     });
@@ -40,12 +39,12 @@ app.get('/feed', function(req, res) {
 
 app.post('/feed', function(req, res) {
     var eventObject = {
-        'title': req.body.title,
-        'description': req.body.description,
-        'date': req.body.date,
-        'time': req.body.time,
-        'tickets': req.body.tickets,
-        'tags': req.body.tags
+        title: req.body.title,
+        description: req.body.description,
+        date: req.body.date,
+        time: req.body.time,
+        tickets: req.body.tickets,
+        tags: req.body.tags
     };
 
     events.createEvent(eventObject, username, function(post) {

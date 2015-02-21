@@ -50,6 +50,8 @@ module.exports = {
                 return;
             }
 
+            console.log(newPost.id);
+
             database.addEventToUser(username, newPost.id, function(ee, user) {
                 if (ee) {
                     errorCallback(ee);
@@ -61,6 +63,6 @@ module.exports = {
         });
     },
     feedAction: function(actionType, data, username) {
-        //TODO Get feed, do action, and save to database
+
     }
 };
