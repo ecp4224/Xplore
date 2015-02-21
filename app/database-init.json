@@ -1,0 +1,63 @@
+{
+  "users": {
+    "rabaya": {
+      "email": "rabaya@gmail.com",
+      "uid": 1,
+      "interests": [
+        "chess",
+        "swimming"
+      ],
+      "events": [
+        1,
+        2
+      ]
+    },
+    "ecp4224": {
+      "email": "ecp4224@gmail.com",
+      "uid": 2,
+      "interests": [
+        "math",
+        "computers"
+      ]
+    }
+  },
+  "post_count": 3,
+  "posts": {
+    "1": {
+      "id": 0,
+      "title": "Chess Club",
+      "short_description": "Chess club meeting tuesday!",
+      "description": "We are having a chess club meeting this thrusday and we're looking for people!",
+      "date": "2/26/2015",
+      "time": "3:00PM",
+      "tickets": [
+        {
+          "role": "coach",
+          "taken": 1
+        },
+        {
+          "role": "score_keeper",
+          "taken": 0
+        }
+      ]
+    },
+    "2": {
+      "id": 1,
+      "title": "Chess Club",
+      "short_description": "Chess club meeting tuesday!",
+      "description": "We are having a chess club meeting this thrusday and we're looking for people!",
+      "date": "2/26/2015",
+      "time": "3:00PM",
+      "tickets": [
+        {
+          "role": "coach",
+          "taken": 1
+        },
+        {
+          "role": "score_keeper",
+          "taken": 0
+        }
+      ]
+    }
+  }
+}
