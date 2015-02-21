@@ -14,8 +14,8 @@ var DataManager = require('./lib/data-manager');
 //});
 
 var post = {
-    "title": "Hackathon",
-    "description": "GenTech Student Hackathon!",
+    "title": "Hackathon Too",
+    "description": "GenTech Student Hackathon Too!",
     "date": "2/26/2015",
     "time": "3:00PM",
     "tickets": [
@@ -30,6 +30,21 @@ var post = {
     ]
 }
 
-DataManager.addPost( post, function( err, data ) {
-    console.log( err || data );
-});
+//DataManager.addPost( post, function( err, data ) {
+//    console.log( err || data );
+//});
+var user = {
+    "email": "foo",
+    "uid": 1,
+    "interests": [
+        "chess",
+        "swimming"
+    ],
+    "events": [
+        1,
+        2
+    ]
+}
+//DataManager.addUser( 'foo', user, function( err, data ) {
+//    console.log( err || data );
+//});
