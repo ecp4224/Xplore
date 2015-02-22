@@ -16,7 +16,7 @@ Running the app is very easy.
 To set it up all you need to run is:
 
 ```shell
-git clone https://github.com/headdetect/Slack-Node.git
+git clone https://github.com/hypereddie/Xplore.git
 npm install
 ```
 Once you have everything all installed and ready to go, run these commands to get the app up and going:
