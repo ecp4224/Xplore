@@ -1,4 +1,4 @@
-![logo](http://xplore-2-env-u2jp9nycmq.elasticbeanstalk.com/logotransparent.png)
+![logo](https://raw.githubusercontent.com/hypereddie/Xplore/master/app/public/logotransparent.png)
 
 ### What is it?
 Xplore allows you to find, organize, and participate in local and global school clubs and events. Anyone can make/organize and event, and people can join events based on location.
